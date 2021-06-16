@@ -1,0 +1,112 @@
+{% block content %}
+    <h5 style="width: 95%; margin: 50px auto 0 auto;">Общая статистика по группе за
+        период {{ settings.start|date:"d.m.Y" }} - {{ settings.end|date:"d.m.Y" }}</h5>
+    <div class="chart-container">
+        <div class="students-label">кол-во активных студентов</div>
+        <div class="ct-chart ct-golden-section"></div>
+        <div class="empty"></div>
+        <div class="date-label">дата занятия</div>
+    </div>
+    <div style="display: flex; width: 630px; margin: 0 0 0 200px;">
+        <ul>
+            <li class="micro-point">Включенный микрофон</li>
+        </ul>
+        <ul>
+            <li class="share-point">Демонстрация экрана</li>
+        </ul>
+        <ul>
+            <li class="atten-point">Присутствие на паре</li>
+        </ul>
+    </div>
+
+    <div class="mini_tables" style="display: flex;">
+        <table class="table">
+            <tbody>
+            <tr>
+                <td>Активных студентов</td>
+                <td>{{ activity.active }}</td>
+            </tr>
+            <tr>
+                <td>Всего студентов</td>
+                <td>{{ activity.all_count }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="table teacher-list">
+        <table class="table">
+            <thead>
+            <tr>Моя статистика</tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><a href="{% url "get_participant_info" teams_id=teacher.teams_id %}">{{ teacher.name }}</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+    <div class="student-list">
+        <table class="table">
+            <thead>
+            <tr>
+                <td>Список студентов</td>
+                <td>Статус</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for student in students %}
+                <tr>
+                    <td><a href="{% url "get_participant_info" teams_id=student.teams_id %}">{{ student.name }}</a></td>
+                    <td><span style="font-weight: bolder">{{ student.status }}</span></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let chart = new Chartist.Line('.ct-chart', {
+                labels: [{%for date in general.meetings %}'{{ date }}', {% endfor %}],
+                series: [{{ general.microphone_actives }}, {{ general.sharing_actives }}, {{ general.attendance_actives }}]
+            }, {
+                low: 0, high: 5, axisY: {
+                    onlyInteger: true
+                },
+                reverseData: true,
+            });
+
+                        let seq = 0, delays = 80, durations = 500;
+
+            chart.on('created', function () {
+                seq = 0;
+            });
+
+            chart.on('draw', function (data) {
+                if (data.type === 'line') {
+                    seq += 2;
+                    data.element.animate({
+                        opacity: {
+                            begin: seq * delays,
+                            dur: durations,
+                            from: 0,
+                            to: 1
+                        }
+                    });
+                }
+            });
+
+            chart.on('created', function () {
+                if (window.__exampleAnimateTimeout) {
+                    clearTimeout(window.__exampleAnimateTimeout);
+                    window.__exampleAnimateTimeout = null;
+                }
+                window.__exampleAnimateTimeout = setTimeout(chart.update.bind(chart), 12000);
+            });
+        });
+    </script>
+{% endblock %}

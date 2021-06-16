@@ -1,0 +1,106 @@
+{% extends "monitoring/layout.html" %}
+{% block content %}
+    <h5 style="margin-top: 100px;">Информация о студенте: {{ student.name }}</h5>
+    <h6 style="margin-top: 20px;">Статус: <span style="font-weight: bolder">{{ status }}</span></h6>
+    <a style="margin-top: 20px !important;" href="{% url "home" %}">Назад</a>
+
+
+    <h5 style="width: 95%; margin: 50px auto;">Детальная статистика</h5>
+    <div class="chart-container">
+        <div class="students-label">минут</div>
+        <div class="ct-chart ct-golden-section" id="chart1"></div>
+        <div class="empty"></div>
+        <div class="date-label">дата занятия</div>
+    </div>
+    <div style="display: flex; width: 630px; margin: 0 0 0 200px;">
+        <ul>
+            <li class="micro-point">Включенный микрофон</li>
+        </ul>
+        <ul>
+            <li class="share-point">Демонстрация экрана</li>
+        </ul>
+        <ul>
+            <li class="atten-point">Присутствие на паре</li>
+        </ul>
+    </div>
+
+    {#    <div class="student-charts" style="display: flex">#}
+    {#        <div class="student-chart">#}
+    {#            <h7 style="margin-top: 50px;">Продолжительность включения микрофона</h7>#}
+    {#            <div class="chart-container">#}
+    {#                <div class="time-label">минут</div>#}
+    {#                <div class="ct-chart ct-golden-section" id="chart1"></div>#}
+    {#                <div class="empty"></div>#}
+    {#                <div class="datetime-label">дата занятия</div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="student-chart" style="width: 30%;">#}
+    {#            <h7 style="margin-top: 50px;">Продолжительность демонстрации экрана</h7>#}
+    {#            <div class="chart-container">#}
+    {#                <div class="time-label">минут</div>#}
+    {#                <div class="ct-chart ct-golden-section" id="chart2"></div>#}
+    {#                <div class="empty"></div>#}
+    {#                <div class="datetime-label">дата занятия</div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="student-chart" style="width: 30%;">#}
+    {#            <h7 style="margin-top: 50px;">Продолжительность присутсвия на занятии</h7>#}
+    {#            <div class="chart-container">#}
+    {#                <div class="time-label">минут</div>#}
+    {#                <div class="ct-chart ct-golden-section" id="chart3"></div>#}
+    {#                <div class="empty"></div>#}
+    {#                <div class="datetime-label">дата занятия</div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let chart = new Chartist.Line('#chart1', {
+                labels: [{%for date in meetings %}'{{ date }}', {% endfor %}],
+                series: [
+                    [{%for act in microphone_actives %}{{ act }}, {% endfor %}],
+                    [{%for act in sharing_actives %}{{ act }}, {% endfor %}],
+                    [{%for act in attendance_actives %}{{ act }}, {% endfor %}]
+                ]
+                {#labels: [{%for date in general.meetings %}'{{ date }}', {% endfor %}],#}
+                {#series: [{{ general.microphone_actives }}, {{ general.sharing_actives }}, {{ general.attendance_actives }}]#}
+            }, {
+                low: 0, high: 50, axisY: {
+                    onlyInteger: true
+                },
+                reverseData: true,
+            });
+
+            let seq = 0, delays = 80, durations = 500;
+
+            chart.on('created', function () {
+                seq = 0;
+            });
+
+            chart.on('draw', function (data) {
+                if (data.type === 'line') {
+                    seq += 2;
+                    data.element.animate({
+                        opacity: {
+                            begin: seq * delays,
+                            dur: durations,
+                            from: 0,
+                            to: 1
+                        }
+                    });
+                }
+            });
+
+            chart.on('created', function () {
+                if (window.__exampleAnimateTimeout) {
+                    clearTimeout(window.__exampleAnimateTimeout);
+                    window.__exampleAnimateTimeout = null;
+                }
+                window.__exampleAnimateTimeout = setTimeout(chart.update.bind(chart), 12000);
+            });
+        });
+    </script>
+{% endblock %}

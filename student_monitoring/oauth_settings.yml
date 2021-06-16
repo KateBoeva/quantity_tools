@@ -1,0 +1,7 @@
+app_id: "3f5a91b3-7b94-40f8-89d5-c329b58f267e"
+app_secret: "bkamrWF88yhACLIY142[?:["
+redirect: "http://localhost:8000/callback"
+scopes: "openid profile offline_access user.read calendars.read reports.read.all Team.ReadBasic.All TeamSettings.Read.All TeamSettings.ReadWrite.All User.Read.All Directory.Read.All User.ReadWrite.All Directory.ReadWrite.All"
+authority: "https://login.microsoftonline.com/common"
+authorize_endpoint: "/oauth2/v2.0/authorize"
+token_endpoint: "/oauth2/v2.0/token"

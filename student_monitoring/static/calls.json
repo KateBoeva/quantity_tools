@@ -1,0 +1,186 @@
+{
+  "data": [
+    {
+      "id": "bd875d4c-c795-4337-bdd8-792645d4b99e",
+      "startDateTime": "2021-06-08 20:02:00",
+      "endDateTime": "2021-06-08 20:15:20",
+      "participants": [
+        {
+          "id": "e8082e62-c35e-4227-8d04-a857d9709e41",
+          "mutePercent": "0.5442923",
+          "startDateTime": "2021-06-08 20:02:01",
+          "endDateTime": "2021-06-08 20:15:03",
+          "sharingPercent": "0.433357"
+        },
+        {
+          "id": "c679af57-ce5f-4b0c-9def-4be50eabbf45",
+          "mutePercent": "0.8620367",
+          "startDateTime": "2021-06-08 20:03:10",
+          "endDateTime": "2021-06-08 20:15:13",
+          "sharingPercent": "0"
+        },
+        {
+          "id": "23c3a22e-3824-46fd-bd85-3b24ce9c3c57",
+          "mutePercent": "0.7034034",
+          "startDateTime": "2021-06-08 20:04:29",
+          "endDateTime": "2021-06-08 20:15:20",
+          "sharingPercent": "0"
+        },
+        {
+          "id": "1f656139-bed0-4909-ba39-4ed192a94f8c",
+          "mutePercent": "0",
+          "startDateTime": "2021-06-08 20:02:00",
+          "endDateTime": "2021-06-08 20:15:20",
+          "sharingPercent": "0"
+        }
+      ]
+    },
+    {
+      "id": "4758cdf9-b2dd-413b-a320-9cdd0a77210e",
+      "startDateTime": "2021-06-07 19:00:02",
+      "endDateTime": "2021-06-08 19:27:20",
+      "participants": [
+        {
+          "id": "e8082e62-c35e-4227-8d04-a857d9709e41",
+          "mutePercent": "0",
+          "startDateTime": "2021-06-07 19:00:05",
+          "endDateTime": "2021-06-07 19:26:03",
+          "sharingPercent": "0.829904"
+        },
+        {
+          "id": "c679af57-ce5f-4b0c-9def-4be50eabbf45",
+          "mutePercent": "0.8620367",
+          "startDateTime": "2021-06-08 19:03:10",
+          "endDateTime": "2021-06-08 19:20:13",
+          "sharingPercent": "0.1312"
+        },
+        {
+          "id": "23c3a22e-3824-46fd-bd85-3b24ce9c3c57",
+          "mutePercent": "1",
+          "startDateTime": "2021-06-08 19:04:29",
+          "endDateTime": "2021-06-08 19:20:20",
+          "sharingPercent": "0"
+        },
+        {
+          "id": "1f656139-bed0-4909-ba39-4ed192a94f8c",
+          "mutePercent": "0",
+          "startDateTime": "2021-06-07 19:00:02",
+          "endDateTime": "2021-06-08 19:27:20",
+          "sharingPercent": "0"
+        }
+      ]
+    },
+    {
+      "id": "a929773e-7102-4fbe-a590-971a4592eaa7",
+      "startDateTime": "2021-06-03 12:40:00",
+      "endDateTime": "2021-06-03 12:49:03",
+      "participants": [
+        {
+          "id": "e8082e62-c35e-4227-8d04-a857d9709e41",
+          "mutePercent": "0.142923",
+          "startDateTime": "2021-06-03 12:40:01",
+          "endDateTime": "2021-06-03 12:49:03",
+          "sharingPercent": "0.798484"
+        },
+        {
+          "id": "c679af57-ce5f-4b0c-9def-4be50eabbf45",
+          "mutePercent": "0.2620367",
+          "startDateTime": "2021-06-03 12:41:10",
+          "endDateTime": "2021-06-03 12:42:13",
+          "sharingPercent": "0"
+        },
+        {
+          "id": "1f656139-bed0-4909-ba39-4ed192a94f8c",
+          "mutePercent": "0",
+          "startDateTime": "2021-06-03 12:40:00",
+          "endDateTime": "2021-06-03 12:49:03",
+          "sharingPercent": "0"
+        }
+      ]
+    },
+    {
+      "id": "8600d07a-cd45-4939-b3f0-22987061ed94",
+      "startDateTime": "2021-06-02 20:03:10",
+      "endDateTime": "2021-06-02 20:53:10",
+      "participants": [
+        {
+          "id": "c679af57-ce5f-4b0c-9def-4be50eabbf45",
+          "mutePercent": "0.2620367",
+          "startDateTime": "2021-06-02 20:03:10",
+          "endDateTime": "2021-06-02 20:50:13",
+          "sharingPercent": "0"
+        },
+        {
+          "id": "23c3a22e-3824-46fd-bd85-3b24ce9c3c57",
+          "mutePercent": "0.7034034",
+          "startDateTime": "2021-06-02 20:04:29",
+          "endDateTime": "2021-06-02 20:52:20",
+          "sharingPercent": "0"
+        },
+        {
+          "id": "1f656139-bed0-4909-ba39-4ed192a94f8c",
+          "mutePercent": "0",
+          "startDateTime": "2021-06-02 20:03:10",
+          "endDateTime": "2021-06-02 20:53:10",
+          "sharingPercent": "0.89890"
+        }
+      ]
+    },
+    {
+      "id": "717b5428-5198-4fc1-acb6-a3e51687ff7f",
+      "startDateTime": "2021-06-01 12:04:29",
+      "endDateTime": "2021-06-01 12:10:29",
+      "participants": [
+        {
+          "id": "23c3a22e-3824-46fd-bd85-3b24ce9c3c57",
+          "mutePercent": "0.7034034",
+          "startDateTime": "2021-06-01 12:04:29",
+          "endDateTime": "2021-06-01 12:10:20",
+          "sharingPercent": "0"
+        },
+        {
+          "id": "1f656139-bed0-4909-ba39-4ed192a94f8c",
+          "mutePercent": "0",
+          "startDateTime": "2021-06-01 12:04:29",
+          "endDateTime": "2021-06-01 12:10:29",
+          "sharingPercent": "0.12"
+        }
+      ]
+    },
+    {
+      "id": "84a5825f-d752-461a-8f23-3eee53a17d9e",
+      "startDateTime": "2021-06-01 15:34:01",
+      "endDateTime": "2021-06-01 15:59:01",
+      "participants": [
+        {
+          "id": "e8082e62-c35e-4227-8d04-a857d9709e41",
+          "mutePercent": "0.3442923",
+          "startDateTime": "2021-06-01 15:34:01",
+          "endDateTime": "2021-06-08 15:40:03",
+          "sharingPercent": "0.433357"
+        },
+        {
+          "id": "c679af57-ce5f-4b0c-9def-4be50eabbf45",
+          "mutePercent": "0.2620367",
+          "startDateTime": "2021-06-01 15:35:10",
+          "endDateTime": "2021-06-01 15:54:13",
+          "sharingPercent": "0"
+        },
+        {
+          "id": "23c3a22e-3824-46fd-bd85-3b24ce9c3c57",
+          "mutePercent": "0.7034034",
+          "startDateTime": "2021-06-01 15:36:29",
+          "endDateTime": "2021-06-01 15:56:20",
+          "sharingPercent": "0"
+        },
+        {
+          "id": "1f656139-bed0-4909-ba39-4ed192a94f8c",
+          "mutePercent": "0",
+          "startDateTime": "2021-06-01 15:34:01",
+          "endDateTime": "2021-06-01 15:59:01",
+          "sharingPercent": "0.234"
+        }
+      ]
+    }
+  ]
+}

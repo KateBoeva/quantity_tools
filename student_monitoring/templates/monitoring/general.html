@@ -1,0 +1,15 @@
+{% extends "monitoring/layout.html" %}
+{% block content %}
+    <div class="jumbotron">
+        {% if user.is_authenticated %}
+            <h4 style="width: 95%; margin: 0 auto;">Добро пожаловать, {{ user.name }}</h4>
+            {% include "monitoring/statistics.html" %}
+            {% include "monitoring/settings_table.html" %}
+            <a href="{% url 'set_settings' %}" class="btn btn-warning btn-medium" style="margin-left: 76px;">Поменять настройки</a>
+            <a href="{% url 'signin' %}" class="btn btn-warning btn-large">Обновить статистику</a>
+        {% else %}
+            <p class="lead">Чтобы увидеть статистику, необходимо войти.</p>
+            <a href="{% url 'signin' %}" class="btn btn-warning btn-large">Войти</a>
+        {% endif %}
+    </div>
+{% endblock %}

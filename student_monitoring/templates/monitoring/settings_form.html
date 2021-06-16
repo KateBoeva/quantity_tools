@@ -1,0 +1,50 @@
+{% extends "monitoring/layout.html" %}
+{% block content %}
+    <h1 style="margin-top: 100px;">Задать настройки</h1>
+    <form action="{% url 'set_settings' %}" style="margin: 50px 0;" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="start">Начало семестра</label>
+            <input type="date" name="start" class="form-control" id="start" value="{{ settings.start|date:"Y-m-d" }}">
+        </div>
+        <div class="form-group">
+            <label for="end">Конец семестра</label>
+            <input type="date" name="end" class="form-control" id="end" value="{{ settings.end|date:"Y-m-d" }}">
+        </div>
+
+        <div class="form-group">
+            <label for="student-sharing">Продолжительность выступления студента на занятии (мин)</label>
+            <input type="number" name="student-sharing" class="form-control" id="student-sharing" value="{{ settings.student_presentation }}">
+        </div>
+        <div class="form-group">
+            <label for="attendance">Сколько минут присутствия на паре засчитывать как явка на занятие? (мин)</label>
+            <input type="number" name="attendance" class="form-control" id="attendance" value="{{ settings.attendance }}">
+        </div>
+        <div class="form-group">
+            <label for="allow_to_miss">Допустимое количество пропусков занятий?</label>
+            <input type="number" name="allow_to_miss" class="form-control" id="allow_to_miss" value="{{ settings.allow_to_miss }}">
+        </div>
+        <div class="form-group">
+            <label for="student-speaking">Сколько минут всех разговоров студента скажет, что он активен на занятии? (мин)</label>
+            <input type="number" name="student-speaking" class="form-control" id="student-speaking" value="{{ settings.microphone }}">
+        </div>
+        <div class="form-group">
+            <label for="active-percent">Процент выполнения условий, при котором студент считается активным?</label><br>
+            <input type="range" name="active-percent" class="custom-range" id="active-percent" min="1" max="100" value="{{ settings.active_percent }}" style="width: 20%;" oninput="set_miss_value()">
+            <p><span id="active-percent-value">{{ settings.active_percent }}</span> %</p>
+        </div>
+        <div class="form-group">
+            <label for="teacher-sharing">Продолжительность выступления преподавателя на занятии (кол-во минут на слайд)</label>
+            <input type="number" name="teacher-sharing" class="form-control" id="teacher-sharing" value="{{ settings.teacher_presentation }}">
+        </div>
+        <input type="hidden" name="team" value="{{ group }}">
+        <button type="submit" class="btn btn-warning">Сохранить</button>
+        <script>
+            function set_miss_value() {
+                let rng = document.getElementById('active-percent');
+                let span = document.getElementById('active-percent-value');
+                span.innerHTML = rng.value;
+            }
+        </script>
+    </form>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% block content %}
+    <div class="settings">
+        <h5 style="width: 95%; margin: 20px auto 0 auto;">Настройки</h5>
+        <table class="table">
+            <tbody>
+            <tr>
+                <td>Продолжительность выступления студента</td>
+                <td>{{ settings.student_presentation }} мин</td>
+            </tr>
+            <tr>
+                <td>Сколько минут присутствия на паре засчитывать как явка на занятие?</td>
+                <td>{{ settings.attendance }} мин</td>
+            </tr>
+            <tr>
+                <td>Допустимое количество пропусков занятий?</td>
+                <td>{{ settings.allow_to_miss }} знт</td>
+            </tr>
+            <tr>
+                <td>Сколько минут всех разговоров студента скажет, что он активен?</td>
+                <td>{{ settings.microphone }} мин</td>
+            </tr>
+            <tr>
+                <td>Процент выполнения условий, при котором студент считается активным?</td>
+                <td>{{ settings.active_percent }} %</td>
+            </tr>
+            <tr>
+                <td>Продолжительность выступления преподавателя (кол-во минут/слайд)</td>
+                <td>{{ settings.teacher_presentation }} мин</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
